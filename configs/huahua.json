@@ -1,0 +1,112 @@
+{
+  "center_radius": null,
+  "dataset": "huahua",
+  "description": "Dynamic telephoto cameras with a static reference array.",
+  "dynamic_views": [
+    "81",
+    "83",
+    "85",
+    "87",
+    "89",
+    "91",
+    "93",
+    "95",
+    "97",
+    "99",
+    "102",
+    "104",
+    "107",
+    "109",
+    "111",
+    "113",
+    "115",
+    "117",
+    "119",
+    "121",
+    "123",
+    "125"
+  ],
+  "evaluation": {
+    "test_views": [
+      "180",
+      "181"
+    ],
+    "camera_source": "external",
+    "init_mode": "roma_ref_pairs",
+    "resolution": [
+      1024,
+      1024
+    ],
+    "iters": 10000,
+    "frames": 30,
+    "seed": 0
+  },
+  "frames": 30,
+  "relay_source_quality": "fast",
+  "resolution": [
+    1024,
+    1024
+  ],
+  "scene": "Huahua",
+  "static_refinement": "precise",
+  "static_refinement_fit_frames": [
+    0,
+    6,
+    12,
+    18,
+    24
+  ],
+  "static_support_count": 8,
+  "static_views": [
+    "0",
+    "2",
+    "4",
+    "6",
+    "8",
+    "10",
+    "12",
+    "14",
+    "16",
+    "18",
+    "20",
+    "21",
+    "24",
+    "26",
+    "27",
+    "30",
+    "32",
+    "34",
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ],
+  "pnp_max_points": 300,
+  "anchor_minimum_coverage": 24,
+  "nonanchor_static_supports": 0,
+  "levels": {
+    "fast": {
+      "temporal_anchor_spacing": 10
+    },
+    "balanced": {
+      "temporal_anchor_spacing": 10,
+      "anchor_points_per_band": 600
+    },
+    "quality": {
+      "temporal_anchor_spacing": 4,
+      "center_motion": {
+        "model": "rgb_window",
+        "radius_fraction": 0.0001,
+        "rotation_model": "framewise"
+      }
+    }
+  },
+  "spsg_aug": true,
+  "spsg": {
+    "max_keypoints": 2048,
+    "crop_resize_max": 1024
+  },
+  "center_motion": null
+}

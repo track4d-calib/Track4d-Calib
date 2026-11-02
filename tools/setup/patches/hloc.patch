@@ -1,0 +1,110 @@
+diff --git a/hloc/__init__.py b/hloc/__init__.py
+index e7f0882..4f74bb5 100644
+--- a/hloc/__init__.py
++++ b/hloc/__init__.py
+@@ -22,7 +22,8 @@ except ImportError:
+     logger.warning("pycolmap is not installed, some features may not work.")
+ else:
+     min_version = version.parse("3.13.0")
+-    found_version = pycolmap.__version__
++    # Some pycolmap builds do not expose __version__.
++    found_version = getattr(pycolmap, "__version__", "dev")
+     if found_version != "dev":
+         version = version.parse(found_version)
+         if version < min_version:
+diff --git a/hloc/extract_features.py b/hloc/extract_features.py
+index ab9456a..355b144 100644
+--- a/hloc/extract_features.py
++++ b/hloc/extract_features.py
+@@ -1,6 +1,7 @@
+ import argparse
+ import collections.abc as collections
+ import glob
++import os
+ import pprint
+ from pathlib import Path
+ from types import SimpleNamespace
+@@ -259,8 +260,11 @@ def main(
+     Model = dynamic_load(extractors, conf["model"]["name"])
+     model = Model(conf["model"]).eval().to(device)
+ 
++    # NOTE: some environments (e.g. restricted /dev/shm or semaphores) cannot
++    # spawn DataLoader worker processes. Allow forcing single-process loading.
++    num_workers = int(os.environ.get("HLOC_NUM_WORKERS", "0"))
+     loader = torch.utils.data.DataLoader(
+-        dataset, num_workers=1, shuffle=False, pin_memory=True
++        dataset, num_workers=num_workers, shuffle=False, pin_memory=True
+     )
+     for idx, data in enumerate(tqdm(loader)):
+         name = dataset.names[idx]
+diff --git a/hloc/match_features.py b/hloc/match_features.py
+index 679e81e..a2c55c9 100644
+--- a/hloc/match_features.py
++++ b/hloc/match_features.py
+@@ -1,4 +1,5 @@
+ import argparse
++import os
+ import pprint
+ from functools import partial
+ from pathlib import Path
+@@ -206,6 +207,14 @@ def find_unique_new_pairs(pairs_all: List[Tuple[str]], match_path: Path = None):
+     return pairs
+ 
+ 
++def _resolve_writer_threads(conf: Dict) -> int:
++    raw = conf.get("writer_threads", os.environ.get("HLOC_MATCH_WRITER_THREADS", 5))
++    try:
++        return max(1, int(raw))
++    except (TypeError, ValueError) as exc:
++        raise ValueError(f"Invalid writer_threads value: {raw!r}") from exc
++
++
+ @torch.no_grad()
+ def match_from_paths(
+     conf: Dict,
+@@ -238,10 +247,12 @@ def match_from_paths(
+     model = Model(conf["model"]).eval().to(device)
+ 
+     dataset = FeaturePairsDataset(pairs, feature_path_q, feature_path_ref)
++    # See extract_features.py: allow forcing single-process loading on restricted systems.
++    num_workers = int(os.environ.get("HLOC_NUM_WORKERS", "0"))
+     loader = torch.utils.data.DataLoader(
+-        dataset, num_workers=5, batch_size=1, shuffle=False, pin_memory=True
++        dataset, num_workers=num_workers, batch_size=1, shuffle=False, pin_memory=True
+     )
+-    writer_queue = WorkQueue(partial(writer_fn, match_path=match_path), 5)
++    writer_queue = WorkQueue(partial(writer_fn, match_path=match_path), _resolve_writer_threads(conf))
+ 
+     for idx, data in enumerate(tqdm(loader, smoothing=0.1)):
+         data = {
+diff --git a/hloc/matchers/adalam.py b/hloc/matchers/adalam.py
+index d2d4e61..19de8f6 100644
+--- a/hloc/matchers/adalam.py
++++ b/hloc/matchers/adalam.py
+@@ -5,6 +5,16 @@ from kornia.utils.helpers import get_cuda_device_if_available
+ from ..utils.base_model import BaseModel
+ 
+ 
++def _canonicalize_match_indices(matches, device):
++    # Kornia 0.8.1 returns an empty (0, 1) distance tensor as the match
++    # indices when either descriptor set has at most one element.
++    if matches.numel() == 0:
++        return torch.zeros((0, 2), dtype=torch.int64, device=device)
++    if matches.ndim != 2 or matches.size(1) != 2:
++        raise ValueError(f"AdaLAM returned invalid match shape {tuple(matches.shape)}")
++    return matches
++
++
+ class AdaLAM(BaseModel):
+     default_conf = {
+         "area_ratio": 100,
+@@ -54,6 +64,9 @@ class AdaLAM(BaseModel):
+                 data["scales0"][0],
+                 data["scales1"][0],
+             )
++        matches = _canonicalize_match_indices(
++            matches, data["keypoints0"].device
++        )
+         matches_new = torch.full(
+             (data["keypoints0"].size(1),),
+             -1,

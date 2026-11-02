@@ -1,0 +1,13 @@
+{
+  "algorithm_source": {
+    "tree_digest": "b5d64c7e1b2eedfa12a3fb0e079742711a7d18a0feab53d2959482d0f8193a9f",
+    "file_count": 59
+  },
+  "method_version": "track_closure",
+  "protocol": "track_closure-track-driven-component-local-fallback-closure-v1",
+  "output_contract": {
+    "component_count": "must_match_data_derived_frozen_direct_job_plan",
+    "component_membership": "nonempty_known_dynamic_views; frozen_track_graph_components_may_cross_physical_bands",
+    "view_partition": "nonoverlapping_complete_dynamic_train_view_union_per_window"
+  }
+}

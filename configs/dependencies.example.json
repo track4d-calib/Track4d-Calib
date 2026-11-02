@@ -1,0 +1,7 @@
+{
+  "hloc": "../third_party/hloc",
+  "cotracker": "../third_party/co-tracker",
+  "romav2_src": "../third_party/RoMaV2/src",
+  "cotracker_checkpoint": "../checkpoints/cotracker3/scaled_offline.pth",
+  "romav2_weights": "../checkpoints/romav2.pt"
+}

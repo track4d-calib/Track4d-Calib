@@ -1,0 +1,209 @@
+{
+  "baseline": "framewise",
+  "overlap_evaluation": false,
+  "protocol": {
+    "scene": "capture_01",
+    "iters": 10000,
+    "resolution": [
+      1280,
+      720
+    ],
+    "train_views": [
+      "00",
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "80"
+    ],
+    "test_views": [
+      "81",
+      "82"
+    ],
+    "frame_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29
+    ],
+    "seed": 0,
+    "preprocess": "Shared undistorted RGB images and resizing",
+    "checkpoint_init": "Shared training-only point cloud; no checkpoint"
+  },
+  "cases": [
+    {
+      "name": "framewise",
+      "label": "Framewise SfM",
+      "calibration": {
+        "cwd": "/path/to/Track4D-Calib",
+        "command": [
+          "taskset",
+          "-c",
+          "0-7",
+          "python",
+          "tools/benchmark/benchmark_framewise.py",
+          "--source",
+          "/path/to/scene",
+          "--config",
+          "/path/to/scene.json",
+          "--dependencies",
+          "/path/to/dependencies.json",
+          "--output",
+          "/path/to/results/framewise",
+          "--gpu",
+          "0"
+        ],
+        "result": "/path/to/results/framewise/result.json",
+        "expect": {
+          "status": "complete",
+          "complete_frames": 30
+        }
+      }
+    },
+    {
+      "name": "fast",
+      "label": "Track4D-Calib fast",
+      "calibration": {
+        "cwd": "/path/to/Track4D-Calib",
+        "command": [
+          "taskset",
+          "-c",
+          "0-7",
+          "python",
+          "-m",
+          "track4d_calib",
+          "run",
+          "--source",
+          "/path/to/scene",
+          "--config",
+          "/path/to/scene.json",
+          "--dependencies",
+          "/path/to/dependencies.json",
+          "--output",
+          "/path/to/results/fast",
+          "--gpu",
+          "0",
+          "--level",
+          "fast"
+        ],
+        "result": "/path/to/results/fast/result.json",
+        "expect": {
+          "status": "complete",
+          "pose_grid_complete": true
+        }
+      },
+      "settings": {
+        "level": "fast"
+      }
+    },
+    {
+      "name": "balanced",
+      "label": "Track4D-Calib balanced",
+      "calibration": {
+        "cwd": "/path/to/Track4D-Calib",
+        "command": [
+          "taskset",
+          "-c",
+          "0-7",
+          "python",
+          "-m",
+          "track4d_calib",
+          "run",
+          "--source",
+          "/path/to/scene",
+          "--config",
+          "/path/to/scene.json",
+          "--dependencies",
+          "/path/to/dependencies.json",
+          "--output",
+          "/path/to/results/balanced",
+          "--gpu",
+          "0",
+          "--level",
+          "balanced"
+        ],
+        "result": "/path/to/results/balanced/result.json",
+        "expect": {
+          "status": "complete",
+          "pose_grid_complete": true
+        }
+      },
+      "settings": {
+        "level": "balanced"
+      }
+    },
+    {
+      "name": "quality",
+      "label": "Track4D-Calib quality",
+      "calibration": {
+        "cwd": "/path/to/Track4D-Calib",
+        "command": [
+          "taskset",
+          "-c",
+          "0-7",
+          "python",
+          "-m",
+          "track4d_calib",
+          "run",
+          "--source",
+          "/path/to/scene",
+          "--config",
+          "/path/to/scene.json",
+          "--dependencies",
+          "/path/to/dependencies.json",
+          "--output",
+          "/path/to/results/quality",
+          "--gpu",
+          "0",
+          "--level",
+          "quality"
+        ],
+        "result": "/path/to/results/quality/result.json",
+        "expect": {
+          "status": "complete",
+          "pose_grid_complete": true
+        }
+      },
+      "settings": {
+        "level": "quality"
+      }
+    }
+  ]
+}

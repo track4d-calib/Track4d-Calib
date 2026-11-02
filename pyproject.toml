@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "track4d-calib"
+version = "0.1.0rc1"
+description = "Track-driven geometric closure for dynamic camera arrays"
+readme = "README.md"
+license-files = ["THIRD_PARTY.md", "dependencies/HLOC_LICENSE"]
+requires-python = ">=3.10"
+dependencies = ["numpy", "scipy", "opencv-python", "Pillow", "h5py", "tqdm", "imageio", "plyfile"]
+
+[project.optional-dependencies]
+evaluation = ["PyYAML"]
+benchmark = ["matplotlib"]
+
+[project.scripts]
+track4d-calib = "track4d_calib.cli:main"
+track4d-calib-evaluate = "track4d_calib.evaluation:main"
+
+[tool.setuptools]
+packages = ["track4d_calib"]
+include-package-data = false
+
+[tool.setuptools.package-data]
+track4d_calib = ["_engine/**/*.py", "_engine/**/*.json", "_evaluation/**/*.py", "_sources.json"]

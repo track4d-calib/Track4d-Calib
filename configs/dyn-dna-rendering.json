@@ -1,0 +1,118 @@
+{
+  "dataset": "dyn-dna-rendering",
+  "scene": "0009_12",
+  "static_views": [
+    "00",
+    "02",
+    "03",
+    "05",
+    "06",
+    "08",
+    "09",
+    "11",
+    "12",
+    "14",
+    "15",
+    "17",
+    "18",
+    "20",
+    "21",
+    "23",
+    "24",
+    "26",
+    "27",
+    "29",
+    "30",
+    "32",
+    "33",
+    "35",
+    "36",
+    "38",
+    "39",
+    "41",
+    "42",
+    "44",
+    "45",
+    "47"
+  ],
+  "dynamic_views": [
+    "81",
+    "82",
+    "83",
+    "84",
+    "86",
+    "87",
+    "88",
+    "89",
+    "91",
+    "92",
+    "93",
+    "94"
+  ],
+  "resolution": [
+    512,
+    512
+  ],
+  "center_radius": 0,
+  "description": "Stationary camera centers with time-varying rotations.",
+  "frames": 120,
+  "static_refinement": "off",
+  "static_support_count": 8,
+  "pnp_max_points": 300,
+  "anchor_minimum_coverage": 24,
+  "nonanchor_static_supports": 0,
+  "relay_source_quality": "fast",
+  "static_refinement_fit_frames": [
+    0
+  ],
+  "evaluation": {
+    "test_views": [
+      "80",
+      "85",
+      "90",
+      "95"
+    ],
+    "frames": 30,
+    "iters": 10000,
+    "seed": 0,
+    "resolution": [
+      512,
+      512
+    ],
+    "checkpoint": "none",
+    "time_denominator": 29,
+    "temporal_sigma": 0.1,
+    "camera_source": "external",
+    "init_mode": "roma_ref_pairs",
+    "roma_ref_views": [
+      "00",
+      "09",
+      "26",
+      "35"
+    ]
+  },
+  "levels": {
+    "fast": {
+      "temporal_anchor_spacing": 15
+    },
+    "balanced": {
+      "temporal_anchor_spacing": 15,
+      "anchor_points_per_band": 600
+    },
+    "quality": {
+      "temporal_anchor_spacing": 15,
+      "center_radius": null,
+      "center_motion": {
+        "model": "rgb_window",
+        "radius_fraction": 0.0001,
+        "rotation_model": "framewise"
+      }
+    }
+  },
+  "spsg_aug": true,
+  "spsg": {
+    "max_keypoints": 2048,
+    "crop_resize_max": 1024
+  },
+  "center_motion": null
+}

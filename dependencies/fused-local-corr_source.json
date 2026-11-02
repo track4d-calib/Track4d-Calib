@@ -1,0 +1,19 @@
+{
+  "revision": "689f2f7303ca0d97ac1f3d1364c732c6d8e889a8",
+  "tree_sha256": "8eb6737f2f2d0bc3981ddaa144aa5c2a61278f4f031aa9b76905b50f226a369f",
+  "files": {
+    ".github/workflows/build.yml": "1e6d73bf1d7e17b4a118bc395cad2f4d11560d6b45bfcf397d0969fd1a855e4e",
+    ".gitignore": "71cc7e24e82c660ecc2a7e66964d80e564f2fd4458bf32ef50f85010e00a3160",
+    "INSTALL.md": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "LICENSE": "83dedfee094b16cde41d0f5c58757f7cbd42bff48a24f1d23db535b4b49d31c7",
+    "README.md": "6ccfd4cbe8ede993f8531b51113af5e6630a5c8d5fd2a62adef7ee00c7409160",
+    "local_corr/__init__.py": "687804c282b61143008377e87bcae332163cbd096aaad5c43c2ea297671921eb",
+    "local_corr/csrc/corr.cpp": "19ffd5328608548d92416bd6dc0d41eb234896b74e473f6a0d428cfec6facb3e",
+    "local_corr/csrc/cuda/corr.cu": "6d91ce5448d4a2708d0f41193afa2debc25a3f3008d6722c7d65951d4b41118d",
+    "local_corr/ops.py": "60ee7e8279d7061fdebb48d509317777d447afbf6e7fdccd4b4ea4a2c1e0cbc2",
+    "pyproject.toml": "c79754626d4c471e091d2715e05bbb532552f1dca4ebc8f5970857f7e670cf87",
+    "requirements.txt": "f73b60233c38d0441cebc453b4ef0f3407b685d46b260698127b768a229d42a6",
+    "setup.py": "f9980b326333554a3eb7d530e4c2df540acbdedd261cab5745fcf39e4e8341c6",
+    "test/test_local_corr.py": "a6e41a8c1c2def1715ba401a7efebf84bb945122545fc0ac07e75aa651041914"
+  }
+}

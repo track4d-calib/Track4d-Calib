@@ -1,0 +1,53 @@
+{
+  "scene": "capture_01",
+  "static_views": [
+    "00",
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15"
+  ],
+  "dynamic_views": [
+    "80",
+    "81",
+    "82"
+  ],
+  "resolution": [
+    1280,
+    720
+  ],
+  "frames": 30,
+  "center_radius": null,
+  "levels": {
+    "fast": {
+      "temporal_anchor_spacing": 29
+    },
+    "balanced": {
+      "temporal_anchor_spacing": 15
+    },
+    "quality": {
+      "temporal_anchor_spacing": 8
+    }
+  },
+  "spsg_aug": true,
+  "spsg": {
+    "max_keypoints": 2048,
+    "crop_resize_max": 1024
+  },
+  "center_motion": {
+    "model": "rgb_window",
+    "radius_fraction": 0.0001,
+    "rotation_model": "framewise"
+  }
+}

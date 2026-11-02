@@ -1,0 +1,130 @@
+{
+  "dataset": "dyn-4dv",
+  "scene": "Seq5",
+  "static_views": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "21",
+    "25",
+    "26",
+    "27",
+    "28",
+    "29",
+    "31",
+    "32",
+    "33",
+    "34",
+    "35",
+    "37",
+    "38",
+    "39",
+    "41",
+    "42",
+    "43",
+    "44",
+    "45",
+    "46",
+    "47",
+    "48",
+    "49",
+    "50",
+    "51",
+    "53",
+    "54",
+    "55",
+    "56",
+    "57",
+    "58",
+    "60",
+    "61",
+    "62",
+    "63",
+    "64",
+    "65"
+  ],
+  "dynamic_views": [
+    "20",
+    "22",
+    "23",
+    "24",
+    "30",
+    "36",
+    "40",
+    "52",
+    "59",
+    "66"
+  ],
+  "calibration_test_views": [
+    "23",
+    "59"
+  ],
+  "resolution": [
+    1280,
+    720
+  ],
+  "center_radius": null,
+  "static_support_count": 8,
+  "description": "Camera rotation and translation estimated from synchronized capture.",
+  "frames": 120,
+  "static_refinement": "off",
+  "anchor_minimum_coverage": 150,
+  "pnp_max_points": 150,
+  "nonanchor_static_supports": 0,
+  "relay_source_quality": "fast",
+  "static_refinement_fit_frames": [
+    0
+  ],
+  "evaluation": {
+    "test_views": [
+      "23",
+      "59"
+    ],
+    "frames": 30,
+    "iters": 10000,
+    "seed": 0,
+    "resolution": [
+      960,
+      540
+    ],
+    "checkpoint": "none",
+    "camera_source": "external",
+    "init_mode": "roma_ref_pairs"
+  },
+  "levels": {
+    "fast": {
+      "temporal_anchor_spacing": 29
+    },
+    "balanced": {
+      "temporal_anchor_spacing": 15,
+      "anchor_points_per_band": 600
+    },
+    "quality": {
+      "temporal_anchor_spacing": 8,
+      "pnp_max_points": 300
+    }
+  },
+  "spsg_aug": true,
+  "spsg": {
+    "max_keypoints": 2048,
+    "crop_resize_max": 1024
+  },
+  "center_motion": null
+}

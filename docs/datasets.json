@@ -1,0 +1,319 @@
+{
+  "schema": 1,
+  "method": "track4d-calib",
+  "data_version": "2026-11-02",
+  "code_version": "0.1.0rc1",
+  "format": "tar",
+  "video_format": "h264-rgb-lossless",
+  "checksum": "SHA-256",
+  "archives": [
+    {
+      "dataset": "dyn-4dv",
+      "scene": "Seq0",
+      "filename": "dyn-4dv-Seq0-inputs.tar",
+      "bytes": 3629137920,
+      "sha256": "f16d702ad5fa1624cdd0f6beed82935c78ea5b8ac511c8e89acb64baa9deea59",
+      "frames": 120,
+      "resolution": [
+        1280,
+        720
+      ],
+      "static_views": 57,
+      "dynamic_views": 10
+    },
+    {
+      "dataset": "dyn-4dv",
+      "scene": "Seq1",
+      "filename": "dyn-4dv-Seq1-inputs.tar",
+      "bytes": 3765975040,
+      "sha256": "635e1e882f9b11e7b07fffbfc085251562e7b912e1c6ed7ccf6d95c38b6b9ced",
+      "frames": 120,
+      "resolution": [
+        1280,
+        720
+      ],
+      "static_views": 57,
+      "dynamic_views": 10
+    },
+    {
+      "dataset": "dyn-4dv",
+      "scene": "Seq2",
+      "filename": "dyn-4dv-Seq2-inputs.tar",
+      "bytes": 4266076160,
+      "sha256": "19785d6527983355bf924e090fcf2ee49e651bceb8cdd2c478bddbfbfe384bd8",
+      "frames": 120,
+      "resolution": [
+        1280,
+        720
+      ],
+      "static_views": 57,
+      "dynamic_views": 10
+    },
+    {
+      "dataset": "dyn-4dv",
+      "scene": "Seq3",
+      "filename": "dyn-4dv-Seq3-inputs.tar",
+      "bytes": 3950581760,
+      "sha256": "0d717c81b878e242b662fdf4a3fb8ac8a594aa7fd6434aecf09058c2ce262725",
+      "frames": 120,
+      "resolution": [
+        1280,
+        720
+      ],
+      "static_views": 57,
+      "dynamic_views": 10
+    },
+    {
+      "dataset": "dyn-4dv",
+      "scene": "Seq4",
+      "filename": "dyn-4dv-Seq4-inputs.tar",
+      "bytes": 4348057600,
+      "sha256": "b466ba3b05ef0ec744ab2bee18f7dcce86184c6749a9c3a858d00c559db3413c",
+      "frames": 120,
+      "resolution": [
+        1280,
+        720
+      ],
+      "static_views": 57,
+      "dynamic_views": 10
+    },
+    {
+      "dataset": "dyn-4dv",
+      "scene": "Seq5",
+      "filename": "dyn-4dv-Seq5-inputs.tar",
+      "bytes": 3892377600,
+      "sha256": "3f0e61f31035e8b34f406573a78e0953d8ede5920d3ff9623032a1fa3147c352",
+      "frames": 120,
+      "resolution": [
+        1280,
+        720
+      ],
+      "static_views": 57,
+      "dynamic_views": 10
+    },
+    {
+      "dataset": "dyn-4dv",
+      "scene": "Seq6",
+      "filename": "dyn-4dv-Seq6-inputs.tar",
+      "bytes": 4137707520,
+      "sha256": "4504575467df50a8b342180c07a0d46e1c7ff92e6e3915da28edee4b90d23d20",
+      "frames": 120,
+      "resolution": [
+        1280,
+        720
+      ],
+      "static_views": 57,
+      "dynamic_views": 10
+    },
+    {
+      "dataset": "dyn-4dv",
+      "scene": "Seq7",
+      "filename": "dyn-4dv-Seq7-inputs.tar",
+      "bytes": 3982284800,
+      "sha256": "5a0b6d14ad2921045842e340c8711cd27c49df00ad117d228be79cffee0a57ec",
+      "frames": 120,
+      "resolution": [
+        1280,
+        720
+      ],
+      "static_views": 57,
+      "dynamic_views": 10
+    },
+    {
+      "dataset": "dyn-4dv",
+      "scene": "Seq8",
+      "filename": "dyn-4dv-Seq8-inputs.tar",
+      "bytes": 3895654400,
+      "sha256": "8fa3f4de93043e6eacea586b7d39a5ca6d46769d0bd9d4fc2f31a7187d8c5fd2",
+      "frames": 120,
+      "resolution": [
+        1280,
+        720
+      ],
+      "static_views": 57,
+      "dynamic_views": 10
+    },
+    {
+      "dataset": "dyn-4dv",
+      "scene": "Seq9",
+      "filename": "dyn-4dv-Seq9-inputs.tar",
+      "bytes": 3855923200,
+      "sha256": "d33477810f93a9b8c39ab6d958b058163155e3c75282a3237c1985696fee6677",
+      "frames": 120,
+      "resolution": [
+        1280,
+        720
+      ],
+      "static_views": 57,
+      "dynamic_views": 10
+    },
+    {
+      "dataset": "dyn-dna-rendering",
+      "scene": "0007_04",
+      "filename": "dyn-dna-rendering-0007_04-inputs.tar",
+      "bytes": 757688320,
+      "sha256": "82bb824f402c133ee8cb349054f9dc2bf16b562d0d288b85f167c2f2d56c0ef2",
+      "frames": 120,
+      "resolution": [
+        512,
+        512
+      ],
+      "static_views": 32,
+      "dynamic_views": 12
+    },
+    {
+      "dataset": "dyn-dna-rendering",
+      "scene": "0008_05",
+      "filename": "dyn-dna-rendering-0008_05-inputs.tar",
+      "bytes": 740321280,
+      "sha256": "f24526e4105d1353d6f94dc40c091c841f4237c8dfb60720404475906d41e18d",
+      "frames": 120,
+      "resolution": [
+        512,
+        512
+      ],
+      "static_views": 32,
+      "dynamic_views": 12
+    },
+    {
+      "dataset": "dyn-dna-rendering",
+      "scene": "0009_12",
+      "filename": "dyn-dna-rendering-0009_12-inputs.tar",
+      "bytes": 647577600,
+      "sha256": "1c0a135f0a1ac140d81e5b9b62b31d2cb2002025f68589471af2df98defdf340",
+      "frames": 120,
+      "resolution": [
+        512,
+        512
+      ],
+      "static_views": 32,
+      "dynamic_views": 12
+    },
+    {
+      "dataset": "dyn-dna-rendering",
+      "scene": "0010_03",
+      "filename": "dyn-dna-rendering-0010_03-inputs.tar",
+      "bytes": 699504640,
+      "sha256": "94b2676dc425c7a569c58bebb27453b51d4346a50c8c9ec39f67679b7c9bdf82",
+      "frames": 120,
+      "resolution": [
+        512,
+        512
+      ],
+      "static_views": 32,
+      "dynamic_views": 12
+    },
+    {
+      "dataset": "dyn-dna-rendering",
+      "scene": "0012_09",
+      "filename": "dyn-dna-rendering-0012_09-inputs.tar",
+      "bytes": 761753600,
+      "sha256": "fd1b87b4dd7054fbfa1480c27ce78ff1be46d27346776fd19ea284714fe7e336",
+      "frames": 120,
+      "resolution": [
+        512,
+        512
+      ],
+      "static_views": 32,
+      "dynamic_views": 12
+    },
+    {
+      "dataset": "dyn-dna-rendering",
+      "scene": "0013_10",
+      "filename": "dyn-dna-rendering-0013_10-inputs.tar",
+      "bytes": 671784960,
+      "sha256": "ade60bcda27d036a886a51cb0d3dcfe0e945b549d3a2bf63e8ae2d3a3f28bfbb",
+      "frames": 120,
+      "resolution": [
+        512,
+        512
+      ],
+      "static_views": 32,
+      "dynamic_views": 12
+    },
+    {
+      "dataset": "dyn-neu3d",
+      "scene": "coffee_martini",
+      "filename": "dyn-neu3d-coffee_martini-inputs.tar",
+      "bytes": 2226483200,
+      "sha256": "feca1692ba405f19d82686996059a8862324e455793387a7a0d37920f7d5adb0",
+      "frames": 120,
+      "resolution": [
+        1352,
+        1014
+      ],
+      "static_views": 20,
+      "dynamic_views": 16
+    },
+    {
+      "dataset": "dyn-neu3d",
+      "scene": "cook_spinach",
+      "filename": "dyn-neu3d-cook_spinach-inputs.tar",
+      "bytes": 2036879360,
+      "sha256": "d0c13591d21763ed82b3649e61d1383911a382208a02896f7cf1aba141926ec8",
+      "frames": 120,
+      "resolution": [
+        1352,
+        1014
+      ],
+      "static_views": 20,
+      "dynamic_views": 16
+    },
+    {
+      "dataset": "dyn-neu3d",
+      "scene": "cut_roasted_beef",
+      "filename": "dyn-neu3d-cut_roasted_beef-inputs.tar",
+      "bytes": 2103429120,
+      "sha256": "13c14a0f4c11b87aad257b42dd02bb539fcf8ad01ae89c67764a98d93428a3c5",
+      "frames": 120,
+      "resolution": [
+        1352,
+        1014
+      ],
+      "static_views": 20,
+      "dynamic_views": 16
+    },
+    {
+      "dataset": "dyn-neu3d",
+      "scene": "flame_salmon_1",
+      "filename": "dyn-neu3d-flame_salmon_1-inputs.tar",
+      "bytes": 2137026560,
+      "sha256": "a86605a89c9435b91c58d539866cd0668ed28ea644c3e6f34401c6410ddd887e",
+      "frames": 120,
+      "resolution": [
+        1352,
+        1014
+      ],
+      "static_views": 20,
+      "dynamic_views": 16
+    },
+    {
+      "dataset": "dyn-neu3d",
+      "scene": "flame_steak",
+      "filename": "dyn-neu3d-flame_steak-inputs.tar",
+      "bytes": 2016307200,
+      "sha256": "127a1344d514f389dc4ed66a34289b1cebf4979d8e8fddefff93b0cc6b55a266",
+      "frames": 120,
+      "resolution": [
+        1352,
+        1014
+      ],
+      "static_views": 20,
+      "dynamic_views": 16
+    },
+    {
+      "dataset": "dyn-neu3d",
+      "scene": "sear_steak",
+      "filename": "dyn-neu3d-sear_steak-inputs.tar",
+      "bytes": 1856952320,
+      "sha256": "50d1aaf5f4f141c199122049db5005b7c18f536433fc996fed769bcb44e2b38f",
+      "frames": 120,
+      "resolution": [
+        1352,
+        1014
+      ],
+      "static_views": 20,
+      "dynamic_views": 16
+    }
+  ]
+}

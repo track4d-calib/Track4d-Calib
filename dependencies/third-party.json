@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "sources": {
+    "hloc": {
+      "url": "https://github.com/cvg/Hierarchical-Localization.git",
+      "revision": "c13273bd0ecc2917a35910fd843712a1c6243193",
+      "purpose": "Static-rig SfM with SuperPoint and SuperGlue",
+      "source_manifest": "hloc_source.json"
+    },
+    "RoMaV2": {
+      "url": "https://github.com/Parskatt/RoMaV2.git",
+      "revision": "7151f3846ad0c89c213afb6803966484a6dd76e0",
+      "purpose": "Dense cross-view correspondences",
+      "source_manifest": "RoMaV2_source.json"
+    },
+    "co-tracker": {
+      "url": "https://github.com/facebookresearch/co-tracker.git",
+      "revision": "82e02e8029753ad4ef13cf06be7f4fc5facdda4d",
+      "purpose": "Temporal point tracking",
+      "source_manifest": "co-tracker_source.json"
+    },
+    "dinov3": {
+      "url": "https://github.com/facebookresearch/dinov3.git",
+      "revision": "adc254450203739c8149213a7a69d8d905b4fcfa",
+      "purpose": "RoMaV2 feature backbone",
+      "source_manifest": "dinov3_source.json"
+    },
+    "fused-local-corr": {
+      "url": "https://github.com/Parskatt/fused-local-corr.git",
+      "revision": "689f2f7303ca0d97ac1f3d1364c732c6d8e889a8",
+      "purpose": "CUDA local correlation for RoMaV2",
+      "source_manifest": "fused-local-corr_source.json"
+    }
+  },
+  "optional": {
+    "4dgs": {
+      "purpose": "Reconstruction evaluation after calibration",
+      "source_manifest": "fudan_runtime_source.json",
+      "setup": "../docs/EVALUATION.md",
+      "url": "https://github.com/fudan-zvg/4d-gaussian-splatting.git",
+      "revision": "63725f21d4adc29669e565ae10e6b3ad6e0d1250",
+      "patches": [
+        "tools/setup/patches/fudan.patch"
+      ]
+    }
+  }
+}

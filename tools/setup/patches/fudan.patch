@@ -1,0 +1,52 @@
+--- a/scene/dataset_readers.py
++++ b/scene/dataset_readers.py
+@@ -125,7 +125,7 @@
+     else:
+         normals = np.zeros_like(positions)
+     if 'time' in vertices:
+-        timestamp = vertices['time'][:, None]
++        timestamp = np.ascontiguousarray(vertices['time'], dtype=np.float32).reshape(-1, 1)
+     else:
+         timestamp = None
+     return BasicPointCloud(points=positions, colors=colors, normals=normals, time=timestamp)
+@@ -273,21 +273,23 @@
+             depth = None
+         tbar.update(1)
+         if 'fl_x' in frame and 'fl_y' in frame and 'cx' in frame and 'cy' in frame:
+-            FovX = FovY = -1.0
+             fl_x = frame['fl_x']
+             fl_y = frame['fl_y']
+             cx = frame['cx']
+             cy = frame['cy']
++            FovX = focal2fov(fl_x, width)
++            FovY = focal2fov(fl_y, height)
+             return CameraInfo(uid=idx, R=R, T=T, FovY=FovY, FovX=FovX, image=image, depth=depth,
+                         image_path=image_path, image_name=image_name, width=width, height=height, timestamp=timestamp,
+                         fl_x=fl_x, fl_y=fl_y, cx=cx, cy=cy)
+             
+         elif 'fl_x' in contents and 'fl_y' in contents and 'cx' in contents and 'cy' in contents:
+-            FovX = FovY = -1.0
+             fl_x = contents['fl_x']
+             fl_y = contents['fl_y']
+             cx = contents['cx']
+             cy = contents['cy']
++            FovX = focal2fov(fl_x, width)
++            FovY = focal2fov(fl_y, height)
+             return CameraInfo(uid=idx, R=R, T=T, FovY=FovY, FovX=FovX, image=image, depth=depth,
+                         image_path=image_path, image_name=image_name, width=width, height=height, timestamp=timestamp,
+                         fl_x=fl_x, fl_y=fl_y, cx=cx, cy=cy)
+--- a/scene/gaussian_model.py
++++ b/scene/gaussian_model.py
+@@ -277,7 +277,11 @@
+         rots[:, 0] = 1
+         if self.gaussian_dim == 4:
+             # dist_t = torch.clamp_min(distCUDA2(fused_times.repeat(1,3)), 1e-10)[...,None]
+-            dist_t = torch.zeros_like(fused_times, device="cuda") + (self.time_duration[1] - self.time_duration[0]) / 5
++            temporal_sigma = float(os.environ.get("FUDAN_INIT_TEMPORAL_SIGMA", "0"))
++            temporal_variance = (self.time_duration[1] - self.time_duration[0]) / 5
++            if temporal_sigma > 0:
++                temporal_variance = temporal_sigma * temporal_sigma
++            dist_t = torch.zeros_like(fused_times, device="cuda") + temporal_variance
+             scales_t = torch.log(torch.sqrt(dist_t))
+             if self.rot_4d:
+                 rots_r = torch.zeros((fused_point_cloud.shape[0], 4), device="cuda")

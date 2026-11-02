@@ -1,0 +1,14 @@
+include README.md THIRD_PARTY.md CONTRIBUTING.md
+include docs/datasets.json
+recursive-include configs *.json
+recursive-include docs *.md
+recursive-exclude configs *.local.json
+recursive-include dependencies *.json *.txt HLOC_LICENSE
+recursive-include tools *.py *.sh *.patch *.md
+include test/.gitkeep
+include third_party/README.md
+global-exclude *.py[cod]
+prune build
+prune dist
+
+recursive-include docs/benchmarks *.svg *.json *.csv
